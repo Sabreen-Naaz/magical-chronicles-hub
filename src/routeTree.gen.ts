@@ -26,7 +26,6 @@ import { Route as GamesSpellsRouteImport } from './routes/games/spells'
 import { Route as GamesQuizRouteImport } from './routes/games/quiz'
 import { Route as GamesPotionRouteImport } from './routes/games/potion'
 import { Route as GamesHiddenRouteImport } from './routes/games/hidden'
-import { Route as GamesLayoutRouteImport } from './routes/games/_layout'
 
 const SpellsRoute = SpellsRouteImport.update({
   id: '/spells',
@@ -113,10 +112,6 @@ const GamesHiddenRoute = GamesHiddenRouteImport.update({
   path: '/hidden',
   getParentRoute: () => GamesRoute,
 } as any)
-const GamesLayoutRoute = GamesLayoutRouteImport.update({
-  id: '/_layout',
-  getParentRoute: () => GamesRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -126,7 +121,7 @@ export interface FileRoutesByFullPath {
   '/creatures': typeof CreaturesRoute
   '/facts': typeof FactsRoute
   '/favorites': typeof FavoritesRoute
-  '/games': typeof GamesLayoutRoute
+  '/games': typeof GamesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/map': typeof MapRoute
   '/objects': typeof ObjectsRoute
@@ -145,7 +140,7 @@ export interface FileRoutesByTo {
   '/creatures': typeof CreaturesRoute
   '/facts': typeof FactsRoute
   '/favorites': typeof FavoritesRoute
-  '/games': typeof GamesLayoutRoute
+  '/games': typeof GamesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/map': typeof MapRoute
   '/objects': typeof ObjectsRoute
@@ -170,7 +165,6 @@ export interface FileRoutesById {
   '/map': typeof MapRoute
   '/objects': typeof ObjectsRoute
   '/spells': typeof SpellsRoute
-  '/games/_layout': typeof GamesLayoutRoute
   '/games/hidden': typeof GamesHiddenRoute
   '/games/potion': typeof GamesPotionRoute
   '/games/quiz': typeof GamesQuizRoute
@@ -230,7 +224,6 @@ export interface FileRouteTypes {
     | '/map'
     | '/objects'
     | '/spells'
-    | '/games/_layout'
     | '/games/hidden'
     | '/games/potion'
     | '/games/quiz'
@@ -374,18 +367,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GamesHiddenRouteImport
       parentRoute: typeof GamesRoute
     }
-    '/games/_layout': {
-      id: '/games/_layout'
-      path: ''
-      fullPath: '/games'
-      preLoaderRoute: typeof GamesLayoutRouteImport
-      parentRoute: typeof GamesRoute
-    }
   }
 }
 
 interface GamesRouteChildren {
-  GamesLayoutRoute: typeof GamesLayoutRoute
   GamesHiddenRoute: typeof GamesHiddenRoute
   GamesPotionRoute: typeof GamesPotionRoute
   GamesQuizRoute: typeof GamesQuizRoute
@@ -394,7 +379,6 @@ interface GamesRouteChildren {
 }
 
 const GamesRouteChildren: GamesRouteChildren = {
-  GamesLayoutRoute: GamesLayoutRoute,
   GamesHiddenRoute: GamesHiddenRoute,
   GamesPotionRoute: GamesPotionRoute,
   GamesQuizRoute: GamesQuizRoute,

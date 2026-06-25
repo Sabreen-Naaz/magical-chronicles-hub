@@ -16,6 +16,12 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { MagicalBackground } from "../components/MagicalBackground";
 import { AppSidebar } from "../components/AppSidebar";
 import { SortingHat } from "../components/SortingHat";
+import { SecretPasswordListener } from "../components/SecretPasswordListener";
+import { RandomEvents } from "../components/RandomEvents";
+import { VoiceSpells } from "../components/VoiceSpells";
+import { MusicPlayer } from "../components/MusicPlayer";
+import { DayNightTint } from "../components/DayNightCycle";
+
 
 function NotFoundComponent() {
   return (
@@ -175,7 +181,13 @@ function RootComponent() {
         </button>
       )}
       <SortingHat />
+      <SecretPasswordListener />
+      <RandomEvents />
+      <VoiceSpells />
+      <MusicPlayer />
+      <DayNightTint />
       <Toaster theme="dark" position="top-center" toastOptions={{ style: { background: "oklch(0.18 0.05 265)", color: "oklch(0.95 0.04 85)", border: "1px solid oklch(0.82 0.16 85 / 0.4)" } }} />
     </QueryClientProvider>
   );
 }
+

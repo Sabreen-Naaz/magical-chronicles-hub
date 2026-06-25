@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SpellsRouteImport } from './routes/spells'
+import { Route as RoomRouteImport } from './routes/room'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ProfessorRouteImport } from './routes/professor'
+import { Route as OwlRouteImport } from './routes/owl'
 import { Route as ObjectsRouteImport } from './routes/objects'
+import { Route as MaraudersRouteImport } from './routes/marauders'
 import { Route as MapRouteImport } from './routes/map'
 import { Route as LocationsRouteImport } from './routes/locations'
 import { Route as GamesRouteImport } from './routes/games'
 import { Route as FavoritesRouteImport } from './routes/favorites'
 import { Route as FactsRouteImport } from './routes/facts'
+import { Route as DetectiveRouteImport } from './routes/detective'
 import { Route as CreaturesRouteImport } from './routes/creatures'
 import { Route as CharactersRouteImport } from './routes/characters'
 import { Route as AchievementsRouteImport } from './routes/achievements'
@@ -27,15 +33,42 @@ import { Route as GamesSpellsRouteImport } from './routes/games/spells'
 import { Route as GamesQuizRouteImport } from './routes/games/quiz'
 import { Route as GamesPotionRouteImport } from './routes/games/potion'
 import { Route as GamesHiddenRouteImport } from './routes/games/hidden'
+import { Route as GamesDuelRouteImport } from './routes/games/duel'
+import { Route as GamesBroomRouteImport } from './routes/games/broom'
 
 const SpellsRoute = SpellsRouteImport.update({
   id: '/spells',
   path: '/spells',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RoomRoute = RoomRouteImport.update({
+  id: '/room',
+  path: '/room',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfessorRoute = ProfessorRouteImport.update({
+  id: '/professor',
+  path: '/professor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OwlRoute = OwlRouteImport.update({
+  id: '/owl',
+  path: '/owl',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ObjectsRoute = ObjectsRouteImport.update({
   id: '/objects',
   path: '/objects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaraudersRoute = MaraudersRouteImport.update({
+  id: '/marauders',
+  path: '/marauders',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MapRoute = MapRouteImport.update({
@@ -61,6 +94,11 @@ const FavoritesRoute = FavoritesRouteImport.update({
 const FactsRoute = FactsRouteImport.update({
   id: '/facts',
   path: '/facts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DetectiveRoute = DetectiveRouteImport.update({
+  id: '/detective',
+  path: '/detective',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CreaturesRoute = CreaturesRouteImport.update({
@@ -118,6 +156,16 @@ const GamesHiddenRoute = GamesHiddenRouteImport.update({
   path: '/hidden',
   getParentRoute: () => GamesRoute,
 } as any)
+const GamesDuelRoute = GamesDuelRouteImport.update({
+  id: '/duel',
+  path: '/duel',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesBroomRoute = GamesBroomRouteImport.update({
+  id: '/broom',
+  path: '/broom',
+  getParentRoute: () => GamesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -125,13 +173,21 @@ export interface FileRoutesByFullPath {
   '/achievements': typeof AchievementsRoute
   '/characters': typeof CharactersRoute
   '/creatures': typeof CreaturesRoute
+  '/detective': typeof DetectiveRoute
   '/facts': typeof FactsRoute
   '/favorites': typeof FavoritesRoute
   '/games': typeof GamesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/map': typeof MapRoute
+  '/marauders': typeof MaraudersRoute
   '/objects': typeof ObjectsRoute
+  '/owl': typeof OwlRoute
+  '/professor': typeof ProfessorRoute
+  '/profile': typeof ProfileRoute
+  '/room': typeof RoomRoute
   '/spells': typeof SpellsRoute
+  '/games/broom': typeof GamesBroomRoute
+  '/games/duel': typeof GamesDuelRoute
   '/games/hidden': typeof GamesHiddenRoute
   '/games/potion': typeof GamesPotionRoute
   '/games/quiz': typeof GamesQuizRoute
@@ -145,12 +201,20 @@ export interface FileRoutesByTo {
   '/achievements': typeof AchievementsRoute
   '/characters': typeof CharactersRoute
   '/creatures': typeof CreaturesRoute
+  '/detective': typeof DetectiveRoute
   '/facts': typeof FactsRoute
   '/favorites': typeof FavoritesRoute
   '/locations': typeof LocationsRoute
   '/map': typeof MapRoute
+  '/marauders': typeof MaraudersRoute
   '/objects': typeof ObjectsRoute
+  '/owl': typeof OwlRoute
+  '/professor': typeof ProfessorRoute
+  '/profile': typeof ProfileRoute
+  '/room': typeof RoomRoute
   '/spells': typeof SpellsRoute
+  '/games/broom': typeof GamesBroomRoute
+  '/games/duel': typeof GamesDuelRoute
   '/games/hidden': typeof GamesHiddenRoute
   '/games/potion': typeof GamesPotionRoute
   '/games/quiz': typeof GamesQuizRoute
@@ -165,13 +229,21 @@ export interface FileRoutesById {
   '/achievements': typeof AchievementsRoute
   '/characters': typeof CharactersRoute
   '/creatures': typeof CreaturesRoute
+  '/detective': typeof DetectiveRoute
   '/facts': typeof FactsRoute
   '/favorites': typeof FavoritesRoute
   '/games': typeof GamesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/map': typeof MapRoute
+  '/marauders': typeof MaraudersRoute
   '/objects': typeof ObjectsRoute
+  '/owl': typeof OwlRoute
+  '/professor': typeof ProfessorRoute
+  '/profile': typeof ProfileRoute
+  '/room': typeof RoomRoute
   '/spells': typeof SpellsRoute
+  '/games/broom': typeof GamesBroomRoute
+  '/games/duel': typeof GamesDuelRoute
   '/games/hidden': typeof GamesHiddenRoute
   '/games/potion': typeof GamesPotionRoute
   '/games/quiz': typeof GamesQuizRoute
@@ -187,13 +259,21 @@ export interface FileRouteTypes {
     | '/achievements'
     | '/characters'
     | '/creatures'
+    | '/detective'
     | '/facts'
     | '/favorites'
     | '/games'
     | '/locations'
     | '/map'
+    | '/marauders'
     | '/objects'
+    | '/owl'
+    | '/professor'
+    | '/profile'
+    | '/room'
     | '/spells'
+    | '/games/broom'
+    | '/games/duel'
     | '/games/hidden'
     | '/games/potion'
     | '/games/quiz'
@@ -207,12 +287,20 @@ export interface FileRouteTypes {
     | '/achievements'
     | '/characters'
     | '/creatures'
+    | '/detective'
     | '/facts'
     | '/favorites'
     | '/locations'
     | '/map'
+    | '/marauders'
     | '/objects'
+    | '/owl'
+    | '/professor'
+    | '/profile'
+    | '/room'
     | '/spells'
+    | '/games/broom'
+    | '/games/duel'
     | '/games/hidden'
     | '/games/potion'
     | '/games/quiz'
@@ -226,13 +314,21 @@ export interface FileRouteTypes {
     | '/achievements'
     | '/characters'
     | '/creatures'
+    | '/detective'
     | '/facts'
     | '/favorites'
     | '/games'
     | '/locations'
     | '/map'
+    | '/marauders'
     | '/objects'
+    | '/owl'
+    | '/professor'
+    | '/profile'
+    | '/room'
     | '/spells'
+    | '/games/broom'
+    | '/games/duel'
     | '/games/hidden'
     | '/games/potion'
     | '/games/quiz'
@@ -247,12 +343,18 @@ export interface RootRouteChildren {
   AchievementsRoute: typeof AchievementsRoute
   CharactersRoute: typeof CharactersRoute
   CreaturesRoute: typeof CreaturesRoute
+  DetectiveRoute: typeof DetectiveRoute
   FactsRoute: typeof FactsRoute
   FavoritesRoute: typeof FavoritesRoute
   GamesRoute: typeof GamesRouteWithChildren
   LocationsRoute: typeof LocationsRoute
   MapRoute: typeof MapRoute
+  MaraudersRoute: typeof MaraudersRoute
   ObjectsRoute: typeof ObjectsRoute
+  OwlRoute: typeof OwlRoute
+  ProfessorRoute: typeof ProfessorRoute
+  ProfileRoute: typeof ProfileRoute
+  RoomRoute: typeof RoomRoute
   SpellsRoute: typeof SpellsRoute
 }
 
@@ -265,11 +367,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpellsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/room': {
+      id: '/room'
+      path: '/room'
+      fullPath: '/room'
+      preLoaderRoute: typeof RoomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/professor': {
+      id: '/professor'
+      path: '/professor'
+      fullPath: '/professor'
+      preLoaderRoute: typeof ProfessorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/owl': {
+      id: '/owl'
+      path: '/owl'
+      fullPath: '/owl'
+      preLoaderRoute: typeof OwlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/objects': {
       id: '/objects'
       path: '/objects'
       fullPath: '/objects'
       preLoaderRoute: typeof ObjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marauders': {
+      id: '/marauders'
+      path: '/marauders'
+      fullPath: '/marauders'
+      preLoaderRoute: typeof MaraudersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/map': {
@@ -305,6 +442,13 @@ declare module '@tanstack/react-router' {
       path: '/facts'
       fullPath: '/facts'
       preLoaderRoute: typeof FactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/detective': {
+      id: '/detective'
+      path: '/detective'
+      fullPath: '/detective'
+      preLoaderRoute: typeof DetectiveRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/creatures': {
@@ -384,10 +528,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GamesHiddenRouteImport
       parentRoute: typeof GamesRoute
     }
+    '/games/duel': {
+      id: '/games/duel'
+      path: '/duel'
+      fullPath: '/games/duel'
+      preLoaderRoute: typeof GamesDuelRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/games/broom': {
+      id: '/games/broom'
+      path: '/broom'
+      fullPath: '/games/broom'
+      preLoaderRoute: typeof GamesBroomRouteImport
+      parentRoute: typeof GamesRoute
+    }
   }
 }
 
 interface GamesRouteChildren {
+  GamesBroomRoute: typeof GamesBroomRoute
+  GamesDuelRoute: typeof GamesDuelRoute
   GamesHiddenRoute: typeof GamesHiddenRoute
   GamesPotionRoute: typeof GamesPotionRoute
   GamesQuizRoute: typeof GamesQuizRoute
@@ -397,6 +557,8 @@ interface GamesRouteChildren {
 }
 
 const GamesRouteChildren: GamesRouteChildren = {
+  GamesBroomRoute: GamesBroomRoute,
+  GamesDuelRoute: GamesDuelRoute,
   GamesHiddenRoute: GamesHiddenRoute,
   GamesPotionRoute: GamesPotionRoute,
   GamesQuizRoute: GamesQuizRoute,
@@ -413,12 +575,18 @@ const rootRouteChildren: RootRouteChildren = {
   AchievementsRoute: AchievementsRoute,
   CharactersRoute: CharactersRoute,
   CreaturesRoute: CreaturesRoute,
+  DetectiveRoute: DetectiveRoute,
   FactsRoute: FactsRoute,
   FavoritesRoute: FavoritesRoute,
   GamesRoute: GamesRouteWithChildren,
   LocationsRoute: LocationsRoute,
   MapRoute: MapRoute,
+  MaraudersRoute: MaraudersRoute,
   ObjectsRoute: ObjectsRoute,
+  OwlRoute: OwlRoute,
+  ProfessorRoute: ProfessorRoute,
+  ProfileRoute: ProfileRoute,
+  RoomRoute: RoomRoute,
   SpellsRoute: SpellsRoute,
 }
 export const routeTree = rootRouteImport

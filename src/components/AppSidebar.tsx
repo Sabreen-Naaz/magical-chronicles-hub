@@ -13,6 +13,12 @@ import {
   Heart,
   Info,
   Wand2,
+  Bird,
+  Footprints,
+  Search,
+  GraduationCap,
+  UserCircle,
+  DoorOpen,
 } from "lucide-react";
 
 const items = [
@@ -24,11 +30,18 @@ const items = [
   { to: "/objects", label: "Artifacts", icon: Gem },
   { to: "/locations", label: "Locations", icon: MapPin },
   { to: "/map", label: "Hogwarts Map", icon: Map },
+  { to: "/marauders", label: "Marauder's Map", icon: Footprints },
+  { to: "/owl", label: "Owl Post", icon: Bird },
+  { to: "/professor", label: "Ask Professor", icon: GraduationCap },
+  { to: "/detective", label: "Detective Mode", icon: Search },
+  { to: "/room", label: "Room of Requirement", icon: DoorOpen },
   { to: "/games", label: "Games", icon: Gamepad2 },
+  { to: "/profile", label: "Wizard Profile", icon: UserCircle },
   { to: "/achievements", label: "Achievements", icon: Trophy },
   { to: "/favorites", label: "Favorites", icon: Heart },
   { to: "/about", label: "About", icon: Info },
 ] as const;
+
 
 export function AppSidebar({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });

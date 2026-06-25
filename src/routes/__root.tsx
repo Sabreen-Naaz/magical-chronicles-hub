@@ -15,6 +15,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { MagicalBackground } from "../components/MagicalBackground";
 import { AppSidebar } from "../components/AppSidebar";
+import { SortingHat } from "../components/SortingHat";
 
 function NotFoundComponent() {
   return (
@@ -173,6 +174,7 @@ function RootComponent() {
           <X className="h-5 w-5" />
         </button>
       )}
+      <SortingHat />
       <Toaster theme="dark" position="top-center" toastOptions={{ style: { background: "oklch(0.18 0.05 265)", color: "oklch(0.95 0.04 85)", border: "1px solid oklch(0.82 0.16 85 / 0.4)" } }} />
     </QueryClientProvider>
   );

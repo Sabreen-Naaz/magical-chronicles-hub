@@ -181,7 +181,13 @@ function RootComponent() {
         </button>
       )}
       <SortingHat />
+      <SecretPasswordListener />
+      <RandomEvents />
+      <VoiceSpells />
+      <MusicPlayer />
+      <DayNightTint />
       <Toaster theme="dark" position="top-center" toastOptions={{ style: { background: "oklch(0.18 0.05 265)", color: "oklch(0.95 0.04 85)", border: "1px solid oklch(0.82 0.16 85 / 0.4)" } }} />
     </QueryClientProvider>
   );
 }
+

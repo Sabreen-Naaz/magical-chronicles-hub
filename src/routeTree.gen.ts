@@ -9,38 +9,322 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SpellsRouteImport } from './routes/spells'
+import { Route as ObjectsRouteImport } from './routes/objects'
+import { Route as MapRouteImport } from './routes/map'
+import { Route as LocationsRouteImport } from './routes/locations'
+import { Route as GamesRouteImport } from './routes/games'
+import { Route as FavoritesRouteImport } from './routes/favorites'
+import { Route as FactsRouteImport } from './routes/facts'
+import { Route as CreaturesRouteImport } from './routes/creatures'
+import { Route as CharactersRouteImport } from './routes/characters'
+import { Route as AchievementsRouteImport } from './routes/achievements'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GamesTriviaRouteImport } from './routes/games/trivia'
+import { Route as GamesSpellsRouteImport } from './routes/games/spells'
+import { Route as GamesQuizRouteImport } from './routes/games/quiz'
+import { Route as GamesPotionRouteImport } from './routes/games/potion'
+import { Route as GamesHiddenRouteImport } from './routes/games/hidden'
 
+const SpellsRoute = SpellsRouteImport.update({
+  id: '/spells',
+  path: '/spells',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObjectsRoute = ObjectsRouteImport.update({
+  id: '/objects',
+  path: '/objects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapRoute = MapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsRoute = LocationsRouteImport.update({
+  id: '/locations',
+  path: '/locations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesRoute = GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FavoritesRoute = FavoritesRouteImport.update({
+  id: '/favorites',
+  path: '/favorites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FactsRoute = FactsRouteImport.update({
+  id: '/facts',
+  path: '/facts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreaturesRoute = CreaturesRouteImport.update({
+  id: '/creatures',
+  path: '/creatures',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharactersRoute = CharactersRouteImport.update({
+  id: '/characters',
+  path: '/characters',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AchievementsRoute = AchievementsRouteImport.update({
+  id: '/achievements',
+  path: '/achievements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GamesTriviaRoute = GamesTriviaRouteImport.update({
+  id: '/trivia',
+  path: '/trivia',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesSpellsRoute = GamesSpellsRouteImport.update({
+  id: '/spells',
+  path: '/spells',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesQuizRoute = GamesQuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesPotionRoute = GamesPotionRouteImport.update({
+  id: '/potion',
+  path: '/potion',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesHiddenRoute = GamesHiddenRouteImport.update({
+  id: '/hidden',
+  path: '/hidden',
+  getParentRoute: () => GamesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/achievements': typeof AchievementsRoute
+  '/characters': typeof CharactersRoute
+  '/creatures': typeof CreaturesRoute
+  '/facts': typeof FactsRoute
+  '/favorites': typeof FavoritesRoute
+  '/games': typeof GamesRouteWithChildren
+  '/locations': typeof LocationsRoute
+  '/map': typeof MapRoute
+  '/objects': typeof ObjectsRoute
+  '/spells': typeof SpellsRoute
+  '/games/hidden': typeof GamesHiddenRoute
+  '/games/potion': typeof GamesPotionRoute
+  '/games/quiz': typeof GamesQuizRoute
+  '/games/spells': typeof GamesSpellsRoute
+  '/games/trivia': typeof GamesTriviaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/achievements': typeof AchievementsRoute
+  '/characters': typeof CharactersRoute
+  '/creatures': typeof CreaturesRoute
+  '/facts': typeof FactsRoute
+  '/favorites': typeof FavoritesRoute
+  '/games': typeof GamesRouteWithChildren
+  '/locations': typeof LocationsRoute
+  '/map': typeof MapRoute
+  '/objects': typeof ObjectsRoute
+  '/spells': typeof SpellsRoute
+  '/games/hidden': typeof GamesHiddenRoute
+  '/games/potion': typeof GamesPotionRoute
+  '/games/quiz': typeof GamesQuizRoute
+  '/games/spells': typeof GamesSpellsRoute
+  '/games/trivia': typeof GamesTriviaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/achievements': typeof AchievementsRoute
+  '/characters': typeof CharactersRoute
+  '/creatures': typeof CreaturesRoute
+  '/facts': typeof FactsRoute
+  '/favorites': typeof FavoritesRoute
+  '/games': typeof GamesRouteWithChildren
+  '/locations': typeof LocationsRoute
+  '/map': typeof MapRoute
+  '/objects': typeof ObjectsRoute
+  '/spells': typeof SpellsRoute
+  '/games/hidden': typeof GamesHiddenRoute
+  '/games/potion': typeof GamesPotionRoute
+  '/games/quiz': typeof GamesQuizRoute
+  '/games/spells': typeof GamesSpellsRoute
+  '/games/trivia': typeof GamesTriviaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/achievements'
+    | '/characters'
+    | '/creatures'
+    | '/facts'
+    | '/favorites'
+    | '/games'
+    | '/locations'
+    | '/map'
+    | '/objects'
+    | '/spells'
+    | '/games/hidden'
+    | '/games/potion'
+    | '/games/quiz'
+    | '/games/spells'
+    | '/games/trivia'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/achievements'
+    | '/characters'
+    | '/creatures'
+    | '/facts'
+    | '/favorites'
+    | '/games'
+    | '/locations'
+    | '/map'
+    | '/objects'
+    | '/spells'
+    | '/games/hidden'
+    | '/games/potion'
+    | '/games/quiz'
+    | '/games/spells'
+    | '/games/trivia'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/achievements'
+    | '/characters'
+    | '/creatures'
+    | '/facts'
+    | '/favorites'
+    | '/games'
+    | '/locations'
+    | '/map'
+    | '/objects'
+    | '/spells'
+    | '/games/hidden'
+    | '/games/potion'
+    | '/games/quiz'
+    | '/games/spells'
+    | '/games/trivia'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AchievementsRoute: typeof AchievementsRoute
+  CharactersRoute: typeof CharactersRoute
+  CreaturesRoute: typeof CreaturesRoute
+  FactsRoute: typeof FactsRoute
+  FavoritesRoute: typeof FavoritesRoute
+  GamesRoute: typeof GamesRouteWithChildren
+  LocationsRoute: typeof LocationsRoute
+  MapRoute: typeof MapRoute
+  ObjectsRoute: typeof ObjectsRoute
+  SpellsRoute: typeof SpellsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/spells': {
+      id: '/spells'
+      path: '/spells'
+      fullPath: '/spells'
+      preLoaderRoute: typeof SpellsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/objects': {
+      id: '/objects'
+      path: '/objects'
+      fullPath: '/objects'
+      preLoaderRoute: typeof ObjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/map': {
+      id: '/map'
+      path: '/map'
+      fullPath: '/map'
+      preLoaderRoute: typeof MapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations': {
+      id: '/locations'
+      path: '/locations'
+      fullPath: '/locations'
+      preLoaderRoute: typeof LocationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games': {
+      id: '/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/favorites': {
+      id: '/favorites'
+      path: '/favorites'
+      fullPath: '/favorites'
+      preLoaderRoute: typeof FavoritesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facts': {
+      id: '/facts'
+      path: '/facts'
+      fullPath: '/facts'
+      preLoaderRoute: typeof FactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creatures': {
+      id: '/creatures'
+      path: '/creatures'
+      fullPath: '/creatures'
+      preLoaderRoute: typeof CreaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/characters': {
+      id: '/characters'
+      path: '/characters'
+      fullPath: '/characters'
+      preLoaderRoute: typeof CharactersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/achievements': {
+      id: '/achievements'
+      path: '/achievements'
+      fullPath: '/achievements'
+      preLoaderRoute: typeof AchievementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +332,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/games/trivia': {
+      id: '/games/trivia'
+      path: '/trivia'
+      fullPath: '/games/trivia'
+      preLoaderRoute: typeof GamesTriviaRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/games/spells': {
+      id: '/games/spells'
+      path: '/spells'
+      fullPath: '/games/spells'
+      preLoaderRoute: typeof GamesSpellsRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/games/quiz': {
+      id: '/games/quiz'
+      path: '/quiz'
+      fullPath: '/games/quiz'
+      preLoaderRoute: typeof GamesQuizRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/games/potion': {
+      id: '/games/potion'
+      path: '/potion'
+      fullPath: '/games/potion'
+      preLoaderRoute: typeof GamesPotionRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/games/hidden': {
+      id: '/games/hidden'
+      path: '/hidden'
+      fullPath: '/games/hidden'
+      preLoaderRoute: typeof GamesHiddenRouteImport
+      parentRoute: typeof GamesRoute
+    }
   }
 }
 
+interface GamesRouteChildren {
+  GamesHiddenRoute: typeof GamesHiddenRoute
+  GamesPotionRoute: typeof GamesPotionRoute
+  GamesQuizRoute: typeof GamesQuizRoute
+  GamesSpellsRoute: typeof GamesSpellsRoute
+  GamesTriviaRoute: typeof GamesTriviaRoute
+}
+
+const GamesRouteChildren: GamesRouteChildren = {
+  GamesHiddenRoute: GamesHiddenRoute,
+  GamesPotionRoute: GamesPotionRoute,
+  GamesQuizRoute: GamesQuizRoute,
+  GamesSpellsRoute: GamesSpellsRoute,
+  GamesTriviaRoute: GamesTriviaRoute,
+}
+
+const GamesRouteWithChildren = GamesRoute._addFileChildren(GamesRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AchievementsRoute: AchievementsRoute,
+  CharactersRoute: CharactersRoute,
+  CreaturesRoute: CreaturesRoute,
+  FactsRoute: FactsRoute,
+  FavoritesRoute: FavoritesRoute,
+  GamesRoute: GamesRouteWithChildren,
+  LocationsRoute: LocationsRoute,
+  MapRoute: MapRoute,
+  ObjectsRoute: ObjectsRoute,
+  SpellsRoute: SpellsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

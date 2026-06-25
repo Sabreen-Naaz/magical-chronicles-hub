@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { characters, type Character } from "@/data/characters";
+import { characterImages } from "@/data/characterImages";
 import { PageHeader } from "@/components/PageHeader";
 import { FavoriteButton } from "@/components/FavoriteButton";
-import { X, Search } from "lucide-react";
+import { X, Search, UserCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/characters")({
   head: () => ({
@@ -59,26 +60,39 @@ function CharactersPage() {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((c) => (
-          <button
-            key={c.id}
-            onClick={() => setSelected(c)}
-            className="magic-card magic-card-hover p-5 text-left"
-          >
-            <div className="flex items-start justify-between gap-2">
-              <div className="min-w-0">
+        {filtered.map((c) => {
+          const img = characterImages[c.id];
+          return (
+            <button
+              key={c.id}
+              onClick={() => setSelected(c)}
+              className="magic-card magic-card-hover overflow-hidden text-left flex flex-col"
+            >
+              <div className="relative aspect-square w-full overflow-hidden bg-midnight">
+                {img ? (
+                  <img src={img} alt={c.name} loading="lazy" width={512} height={512} className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center text-gold/40">
+                    <UserCircle2 className="h-20 w-20" />
+                  </div>
+                )}
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-midnight to-transparent" />
+                <div className="absolute top-2 right-2">
+                  <FavoriteButton kind="character" id={c.id} label={c.name} />
+                </div>
+              </div>
+              <div className="p-4 flex-1">
                 <h3 className="font-display text-xl text-gold truncate">{c.name}</h3>
                 <div className="mt-1 flex flex-wrap gap-1 text-[10px] uppercase tracking-widest">
                   {c.house && <span className="rounded bg-accent/40 px-2 py-0.5 text-accent-foreground">{c.house}</span>}
                   {c.blood && <span className="rounded bg-secondary px-2 py-0.5">{c.blood}</span>}
                   <span className="rounded border border-gold/30 px-2 py-0.5 text-gold-soft">{c.tier}</span>
                 </div>
+                <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{c.bio}</p>
               </div>
-              <FavoriteButton kind="character" id={c.id} label={c.name} />
-            </div>
-            <p className="mt-3 text-sm text-muted-foreground line-clamp-3">{c.bio}</p>
-          </button>
-        ))}
+            </button>
+          );
+        })}
         {filtered.length === 0 && (
           <div className="col-span-full text-center text-muted-foreground italic py-10">
             No characters found. The portraits are silent.

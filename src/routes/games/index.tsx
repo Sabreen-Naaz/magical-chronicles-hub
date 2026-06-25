@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/PageHeader";
-import { FlaskConical, Wand2, BrainCircuit, Eye, ScrollText } from "lucide-react";
+import { FlaskConical, Wand2, BrainCircuit, Eye, ScrollText, Wind, Swords } from "lucide-react";
 
 export const Route = createFileRoute("/games/")({
   component: GamesIndex,
@@ -12,7 +12,10 @@ const games = [
   { to: "/games/quiz", label: "Wizard Quiz", desc: "Test your knowledge of the wizarding world.", icon: BrainCircuit },
   { to: "/games/hidden", label: "Hidden Object Hunt", desc: "Find the magical artifacts hidden in the parchment.", icon: Eye },
   { to: "/games/trivia", label: "Trivia Challenge", desc: "Rapid-fire trivia: how many can you answer in 60 seconds?", icon: ScrollText },
+  { to: "/games/broom", label: "Flying Broom", desc: "Catch Snitches and chocolate frogs — dodge the Bludgers!", icon: Wind },
+  { to: "/games/duel", label: "Duelling Arena", desc: "Cast spells, manage cooldowns, defeat your opponent.", icon: Swords },
 ] as const;
+
 
 function GamesIndex() {
   return (

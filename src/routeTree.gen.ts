@@ -21,6 +21,7 @@ import { Route as CharactersRouteImport } from './routes/characters'
 import { Route as AchievementsRouteImport } from './routes/achievements'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GamesIndexRouteImport } from './routes/games/index'
 import { Route as GamesTriviaRouteImport } from './routes/games/trivia'
 import { Route as GamesSpellsRouteImport } from './routes/games/spells'
 import { Route as GamesQuizRouteImport } from './routes/games/quiz'
@@ -87,6 +88,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GamesIndexRoute = GamesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => GamesRoute,
+} as any)
 const GamesTriviaRoute = GamesTriviaRouteImport.update({
   id: '/trivia',
   path: '/trivia',
@@ -131,6 +137,7 @@ export interface FileRoutesByFullPath {
   '/games/quiz': typeof GamesQuizRoute
   '/games/spells': typeof GamesSpellsRoute
   '/games/trivia': typeof GamesTriviaRoute
+  '/games/': typeof GamesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -140,7 +147,6 @@ export interface FileRoutesByTo {
   '/creatures': typeof CreaturesRoute
   '/facts': typeof FactsRoute
   '/favorites': typeof FavoritesRoute
-  '/games': typeof GamesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/map': typeof MapRoute
   '/objects': typeof ObjectsRoute
@@ -150,6 +156,7 @@ export interface FileRoutesByTo {
   '/games/quiz': typeof GamesQuizRoute
   '/games/spells': typeof GamesSpellsRoute
   '/games/trivia': typeof GamesTriviaRoute
+  '/games': typeof GamesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -170,6 +177,7 @@ export interface FileRoutesById {
   '/games/quiz': typeof GamesQuizRoute
   '/games/spells': typeof GamesSpellsRoute
   '/games/trivia': typeof GamesTriviaRoute
+  '/games/': typeof GamesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -191,6 +199,7 @@ export interface FileRouteTypes {
     | '/games/quiz'
     | '/games/spells'
     | '/games/trivia'
+    | '/games/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -200,7 +209,6 @@ export interface FileRouteTypes {
     | '/creatures'
     | '/facts'
     | '/favorites'
-    | '/games'
     | '/locations'
     | '/map'
     | '/objects'
@@ -210,6 +218,7 @@ export interface FileRouteTypes {
     | '/games/quiz'
     | '/games/spells'
     | '/games/trivia'
+    | '/games'
   id:
     | '__root__'
     | '/'
@@ -229,6 +238,7 @@ export interface FileRouteTypes {
     | '/games/quiz'
     | '/games/spells'
     | '/games/trivia'
+    | '/games/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -332,6 +342,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/games/': {
+      id: '/games/'
+      path: '/'
+      fullPath: '/games/'
+      preLoaderRoute: typeof GamesIndexRouteImport
+      parentRoute: typeof GamesRoute
+    }
     '/games/trivia': {
       id: '/games/trivia'
       path: '/trivia'
@@ -376,6 +393,7 @@ interface GamesRouteChildren {
   GamesQuizRoute: typeof GamesQuizRoute
   GamesSpellsRoute: typeof GamesSpellsRoute
   GamesTriviaRoute: typeof GamesTriviaRoute
+  GamesIndexRoute: typeof GamesIndexRoute
 }
 
 const GamesRouteChildren: GamesRouteChildren = {
@@ -384,6 +402,7 @@ const GamesRouteChildren: GamesRouteChildren = {
   GamesQuizRoute: GamesQuizRoute,
   GamesSpellsRoute: GamesSpellsRoute,
   GamesTriviaRoute: GamesTriviaRoute,
+  GamesIndexRoute: GamesIndexRoute,
 }
 
 const GamesRouteWithChildren = GamesRoute._addFileChildren(GamesRouteChildren)

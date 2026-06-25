@@ -189,3 +189,7 @@
 .animate-float-y { animation: float-y 4s ease-in-out infinite; }
 .animate-twinkle { animation: twinkle 3s ease-in-out infinite; }
 .animate-candle { animation: candle-flicker 2.5s ease-in-out infinite; }
+
+@keyframes wwx-fly-left { from { transform: translateX(0); } to { transform: translateX(120vw); } }
+@keyframes wwx-fly-right { from { transform: translateX(0); } to { transform: translateX(-120vw); } }
+@keyframes wwx-snow { to { transform: translateY(110vh) translateX(20px); } }

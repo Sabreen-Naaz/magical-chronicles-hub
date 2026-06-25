@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Search, Sparkles, User, ScrollText, ArrowRight } from "lucide-react";
+import { Search, Sparkles, User, ScrollText, ArrowRight, RefreshCw } from "lucide-react";
 import { characters } from "@/data/characters";
 import { spells } from "@/data/spells";
 import { facts } from "@/data/facts";
+import { useHouse } from "@/components/SortingHat";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,9 +25,21 @@ function dayIndex(len: number) {
 
 function Home() {
   const [q, setQ] = useState("");
+  const house = useHouse();
   const charOfDay = characters[dayIndex(characters.length)];
   const spellOfDay = spells[dayIndex(spells.length)];
   const factOfDay = facts[dayIndex(facts.length)];
+
+  const houseEmoji = house ? ({ Gryffindor: "🦁", Slytherin: "🐍", Ravenclaw: "🦅", Hufflepuff: "🦡" } as const)[house.house] : "🎩";
+  const houseGradient = house ? ({
+    Gryffindor: "from-red-700/40 to-amber-500/30",
+    Slytherin: "from-emerald-700/40 to-slate-400/20",
+    Ravenclaw: "from-blue-700/40 to-amber-600/20",
+    Hufflepuff: "from-yellow-500/30 to-stone-700/30",
+  } as const)[house.house] : "";
+
+  const resort = () => { try { localStorage.removeItem("wwx:house"); window.location.reload(); } catch {} };
+
 
   const results = useMemo(() => {
     const term = q.trim().toLowerCase();

@@ -9,8 +9,56 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SpellsRouteImport } from './routes/spells'
+import { Route as ObjectsRouteImport } from './routes/objects'
+import { Route as MapRouteImport } from './routes/map'
+import { Route as LocationsRouteImport } from './routes/locations'
+import { Route as GamesRouteImport } from './routes/games'
+import { Route as FactsRouteImport } from './routes/facts'
+import { Route as CreaturesRouteImport } from './routes/creatures'
+import { Route as CharactersRouteImport } from './routes/characters'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SpellsRoute = SpellsRouteImport.update({
+  id: '/spells',
+  path: '/spells',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObjectsRoute = ObjectsRouteImport.update({
+  id: '/objects',
+  path: '/objects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapRoute = MapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsRoute = LocationsRouteImport.update({
+  id: '/locations',
+  path: '/locations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesRoute = GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FactsRoute = FactsRouteImport.update({
+  id: '/facts',
+  path: '/facts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreaturesRoute = CreaturesRouteImport.update({
+  id: '/creatures',
+  path: '/creatures',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharactersRoute = CharactersRouteImport.update({
+  id: '/characters',
+  path: '/characters',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +67,144 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/characters': typeof CharactersRoute
+  '/creatures': typeof CreaturesRoute
+  '/facts': typeof FactsRoute
+  '/games': typeof GamesRoute
+  '/locations': typeof LocationsRoute
+  '/map': typeof MapRoute
+  '/objects': typeof ObjectsRoute
+  '/spells': typeof SpellsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/characters': typeof CharactersRoute
+  '/creatures': typeof CreaturesRoute
+  '/facts': typeof FactsRoute
+  '/games': typeof GamesRoute
+  '/locations': typeof LocationsRoute
+  '/map': typeof MapRoute
+  '/objects': typeof ObjectsRoute
+  '/spells': typeof SpellsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/characters': typeof CharactersRoute
+  '/creatures': typeof CreaturesRoute
+  '/facts': typeof FactsRoute
+  '/games': typeof GamesRoute
+  '/locations': typeof LocationsRoute
+  '/map': typeof MapRoute
+  '/objects': typeof ObjectsRoute
+  '/spells': typeof SpellsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/characters'
+    | '/creatures'
+    | '/facts'
+    | '/games'
+    | '/locations'
+    | '/map'
+    | '/objects'
+    | '/spells'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/characters'
+    | '/creatures'
+    | '/facts'
+    | '/games'
+    | '/locations'
+    | '/map'
+    | '/objects'
+    | '/spells'
+  id:
+    | '__root__'
+    | '/'
+    | '/characters'
+    | '/creatures'
+    | '/facts'
+    | '/games'
+    | '/locations'
+    | '/map'
+    | '/objects'
+    | '/spells'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CharactersRoute: typeof CharactersRoute
+  CreaturesRoute: typeof CreaturesRoute
+  FactsRoute: typeof FactsRoute
+  GamesRoute: typeof GamesRoute
+  LocationsRoute: typeof LocationsRoute
+  MapRoute: typeof MapRoute
+  ObjectsRoute: typeof ObjectsRoute
+  SpellsRoute: typeof SpellsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/spells': {
+      id: '/spells'
+      path: '/spells'
+      fullPath: '/spells'
+      preLoaderRoute: typeof SpellsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/objects': {
+      id: '/objects'
+      path: '/objects'
+      fullPath: '/objects'
+      preLoaderRoute: typeof ObjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/map': {
+      id: '/map'
+      path: '/map'
+      fullPath: '/map'
+      preLoaderRoute: typeof MapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations': {
+      id: '/locations'
+      path: '/locations'
+      fullPath: '/locations'
+      preLoaderRoute: typeof LocationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games': {
+      id: '/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facts': {
+      id: '/facts'
+      path: '/facts'
+      fullPath: '/facts'
+      preLoaderRoute: typeof FactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creatures': {
+      id: '/creatures'
+      path: '/creatures'
+      fullPath: '/creatures'
+      preLoaderRoute: typeof CreaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/characters': {
+      id: '/characters'
+      path: '/characters'
+      fullPath: '/characters'
+      preLoaderRoute: typeof CharactersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +217,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CharactersRoute: CharactersRoute,
+  CreaturesRoute: CreaturesRoute,
+  FactsRoute: FactsRoute,
+  GamesRoute: GamesRoute,
+  LocationsRoute: LocationsRoute,
+  MapRoute: MapRoute,
+  ObjectsRoute: ObjectsRoute,
+  SpellsRoute: SpellsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

@@ -1,0 +1,23 @@
+export type Creature = {
+  id: string;
+  name: string;
+  description: string;
+  powers: string[];
+  habitat: string;
+  facts: string[];
+};
+
+export const creatures: Creature[] = [
+  { id: "phoenix", name: "Phoenix", description: "Immortal bird that bursts into flame and is reborn from its ashes.", powers: ["Healing tears", "Can carry immense weight", "Flame travel"], habitat: "Mountain peaks; rare and untamable", facts: ["Fawkes is Dumbledore's phoenix.", "Phoenix tears saved Harry from Basilisk venom.", "Phoenix feathers are extremely powerful wand cores."] },
+  { id: "basilisk", name: "Basilisk", description: "Giant serpent whose gaze kills instantly and whose venom destroys Horcruxes.", powers: ["Lethal stare", "Highly toxic venom", "Centuries-long lifespan"], habitat: "Chamber of Secrets", facts: ["Hatched by Salazar Slytherin himself.", "Killed by Harry with the Sword of Gryffindor.", "Spiders flee before the Basilisk."] },
+  { id: "thestral", name: "Thestral", description: "Skeletal winged horses visible only to those who have witnessed death.", powers: ["Flight", "Unerring sense of direction"], habitat: "Forbidden Forest", facts: ["Hogwarts has the only fully domesticated herd in Britain.", "They pull the school carriages — students simply can't see them.", "Luna Lovegood was the first student to introduce Harry to them."] },
+  { id: "hippogriff", name: "Hippogriff", description: "Half-eagle, half-horse with fierce pride. Demands a respectful bow.", powers: ["Flight", "Sharp talons", "Powerful beak"], habitat: "Mountains and forests", facts: ["Buckbeak was nearly executed after attacking Draco.", "They mate for life.", "You must never insult one."] },
+  { id: "dementor", name: "Dementor", description: "Soul-sucking creatures that feed on happiness and produce despair.", powers: ["Dementor's Kiss (extracts the soul)", "Cause cold and depression", "Flight"], habitat: "Azkaban; anywhere dark", facts: ["Only the Patronus Charm repels them.", "They breed in mist and darkness.", "They cannot truly see, but sense emotion."] },
+  { id: "house-elf", name: "House-elf", description: "Magical servants bound to wizarding families until freed by a gift of clothes.", powers: ["Apparate where wizards cannot", "Powerful elf magic"], habitat: "Wizarding households", facts: ["Dobby was freed when Harry tricked Lucius Malfoy.", "Kreacher served the Blacks for generations.", "Hermione knitted hats to free them."] },
+  { id: "dragon", name: "Dragon", description: "Massive fire-breathing reptiles, with breeds like the Hungarian Horntail and Norwegian Ridgeback.", powers: ["Fire-breathing", "Near-impenetrable hide", "Immense strength"], habitat: "Mountains worldwide", facts: ["Charlie Weasley studies them in Romania.", "Gringotts uses a blind dragon to guard high-security vaults.", "Harry defeated a Hungarian Horntail in the First Task."] },
+  { id: "centaur", name: "Centaur", description: "Half-human, half-horse beings devoted to divination through the stars.", powers: ["Archery mastery", "Astrology and prophecy"], habitat: "Forbidden Forest", facts: ["Firenze taught Divination at Hogwarts.", "They consider themselves separate from wizardkind.", "They carried Umbridge away in the forest — a moment heavily implied to be unpleasant for her."] },
+  { id: "acromantula", name: "Acromantula", description: "Enormous sentient spider capable of human speech.", powers: ["Venom", "Intelligence", "Massive size"], habitat: "Forbidden Forest colonies", facts: ["Aragog was Hagrid's pet and lived 50 years.", "Their venom is extremely valuable.", "Ron Weasley's worst fear."] },
+  { id: "nundu", name: "Nundu", description: "Giant East African leopard whose breath causes disease that can wipe out villages.", powers: ["Pestilent breath", "Stealth despite size"], habitat: "Africa", facts: ["Classified XXXXX — the most dangerous creature in the Ministry's records.", "Has never been subdued by fewer than 100 wizards working together.", "Mentioned but never shown in the films."] },
+  { id: "boggart", name: "Boggart", description: "Shape-shifter that takes the form of whatever its viewer fears most.", powers: ["Mimics fear", "Hides in dark cupboards"], habitat: "Wardrobes, drawers, dark spaces", facts: ["Defeated by laughter — the spell is Riddikulus.", "No one knows what a Boggart looks like alone.", "Mrs. Weasley's Boggart was her family dead."] },
+  { id: "kelpie", name: "Kelpie", description: "Shape-shifting water demon that lures riders to their drowning.", powers: ["Shape-shifting", "Aquatic"], habitat: "Lakes and rivers (Scotland especially)", facts: ["The Loch Ness Monster is supposedly a kelpie.", "Can be subdued by placing a bridle on it.", "Often appears as a horse."] },
+];

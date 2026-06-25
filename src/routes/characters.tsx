@@ -106,6 +106,7 @@ function CharactersPage() {
 }
 
 function CharacterModal({ character: c, onClose }: { character: Character; onClose: () => void }) {
+  const img = characterImages[c.id];
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <div className="absolute inset-0 bg-black/80 backdrop-blur-md" />
@@ -115,11 +116,17 @@ function CharacterModal({ character: c, onClose }: { character: Character; onClo
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 rounded-full p-2 text-gold hover:bg-gold/10"
+          className="absolute top-4 right-4 rounded-full p-2 text-gold hover:bg-gold/10 bg-midnight/60 z-10"
           aria-label="Close"
         >
           <X className="h-5 w-5" />
         </button>
+
+        {img && (
+          <div className="mb-5 -mt-2 -mx-2 overflow-hidden rounded-xl border border-gold/30">
+            <img src={img} alt={c.name} width={640} height={360} className="w-full h-64 object-cover object-top" />
+          </div>
+        )}
 
         <h2 className="font-display text-3xl text-shimmer">{c.name}</h2>
         <div className="mt-2 flex flex-wrap gap-2 text-[10px] uppercase tracking-widest">

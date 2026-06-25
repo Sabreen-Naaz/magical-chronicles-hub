@@ -16,6 +16,12 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { MagicalBackground } from "../components/MagicalBackground";
 import { AppSidebar } from "../components/AppSidebar";
 import { SortingHat } from "../components/SortingHat";
+import { SecretPasswordListener } from "../components/SecretPasswordListener";
+import { RandomEvents } from "../components/RandomEvents";
+import { VoiceSpells } from "../components/VoiceSpells";
+import { MusicPlayer } from "../components/MusicPlayer";
+import { DayNightTint } from "../components/DayNightCycle";
+
 
 function NotFoundComponent() {
   return (

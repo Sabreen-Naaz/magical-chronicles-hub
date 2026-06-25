@@ -143,6 +143,8 @@ All rights to the original Harry Potter universe, characters, locations, and rel
 
 ## 👩‍💻 Author
 
-Created with magic, curiosity, and a love for the wizarding world.
+Created by Sabreen Naaz
+
+Artificial Intelligence and Machine Learning (AIML) Student | Aspiring Software Engineer
 
 ⭐ If you enjoyed this project, consider giving it a star on GitHub!

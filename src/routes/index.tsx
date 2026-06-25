@@ -53,6 +53,22 @@ function Home() {
 
   return (
     <div>
+      {house && (
+        <section className={`mb-8 rounded-2xl border border-gold/30 bg-gradient-to-r ${houseGradient} p-5 flex items-center justify-between gap-4`}>
+          <div className="flex items-center gap-4 min-w-0">
+            <div className="text-4xl">{houseEmoji}</div>
+            <div className="min-w-0">
+              <div className="text-[10px] uppercase tracking-widest text-gold-soft">Welcome back</div>
+              <div className="font-display text-xl text-gold truncate">{house.name}</div>
+              <div className="text-sm text-muted-foreground">House <span className="text-gold">{house.house}</span></div>
+            </div>
+          </div>
+          <button onClick={resort} className="shrink-0 rounded-full border border-gold/40 px-3 py-1.5 text-xs text-gold hover:bg-gold/10 flex items-center gap-1.5">
+            <RefreshCw className="h-3 w-3" /> Re-sort
+          </button>
+        </section>
+      )}
+
       {/* Hero */}
       <section className="relative mb-16 overflow-hidden rounded-2xl magic-card p-8 md:p-16 text-center">
         <div

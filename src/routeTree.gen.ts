@@ -14,10 +14,19 @@ import { Route as ObjectsRouteImport } from './routes/objects'
 import { Route as MapRouteImport } from './routes/map'
 import { Route as LocationsRouteImport } from './routes/locations'
 import { Route as GamesRouteImport } from './routes/games'
+import { Route as FavoritesRouteImport } from './routes/favorites'
 import { Route as FactsRouteImport } from './routes/facts'
 import { Route as CreaturesRouteImport } from './routes/creatures'
 import { Route as CharactersRouteImport } from './routes/characters'
+import { Route as AchievementsRouteImport } from './routes/achievements'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GamesTriviaRouteImport } from './routes/games/trivia'
+import { Route as GamesSpellsRouteImport } from './routes/games/spells'
+import { Route as GamesQuizRouteImport } from './routes/games/quiz'
+import { Route as GamesPotionRouteImport } from './routes/games/potion'
+import { Route as GamesHiddenRouteImport } from './routes/games/hidden'
+import { Route as GamesLayoutRouteImport } from './routes/games/_layout'
 
 const SpellsRoute = SpellsRouteImport.update({
   id: '/spells',
@@ -44,6 +53,11 @@ const GamesRoute = GamesRouteImport.update({
   path: '/games',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FavoritesRoute = FavoritesRouteImport.update({
+  id: '/favorites',
+  path: '/favorites',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FactsRoute = FactsRouteImport.update({
   id: '/facts',
   path: '/facts',
@@ -59,88 +73,180 @@ const CharactersRoute = CharactersRouteImport.update({
   path: '/characters',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AchievementsRoute = AchievementsRouteImport.update({
+  id: '/achievements',
+  path: '/achievements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GamesTriviaRoute = GamesTriviaRouteImport.update({
+  id: '/trivia',
+  path: '/trivia',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesSpellsRoute = GamesSpellsRouteImport.update({
+  id: '/spells',
+  path: '/spells',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesQuizRoute = GamesQuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesPotionRoute = GamesPotionRouteImport.update({
+  id: '/potion',
+  path: '/potion',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesHiddenRoute = GamesHiddenRouteImport.update({
+  id: '/hidden',
+  path: '/hidden',
+  getParentRoute: () => GamesRoute,
+} as any)
+const GamesLayoutRoute = GamesLayoutRouteImport.update({
+  id: '/_layout',
+  getParentRoute: () => GamesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/achievements': typeof AchievementsRoute
   '/characters': typeof CharactersRoute
   '/creatures': typeof CreaturesRoute
   '/facts': typeof FactsRoute
-  '/games': typeof GamesRoute
+  '/favorites': typeof FavoritesRoute
+  '/games': typeof GamesLayoutRoute
   '/locations': typeof LocationsRoute
   '/map': typeof MapRoute
   '/objects': typeof ObjectsRoute
   '/spells': typeof SpellsRoute
+  '/games/hidden': typeof GamesHiddenRoute
+  '/games/potion': typeof GamesPotionRoute
+  '/games/quiz': typeof GamesQuizRoute
+  '/games/spells': typeof GamesSpellsRoute
+  '/games/trivia': typeof GamesTriviaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/achievements': typeof AchievementsRoute
   '/characters': typeof CharactersRoute
   '/creatures': typeof CreaturesRoute
   '/facts': typeof FactsRoute
-  '/games': typeof GamesRoute
+  '/favorites': typeof FavoritesRoute
+  '/games': typeof GamesLayoutRoute
   '/locations': typeof LocationsRoute
   '/map': typeof MapRoute
   '/objects': typeof ObjectsRoute
   '/spells': typeof SpellsRoute
+  '/games/hidden': typeof GamesHiddenRoute
+  '/games/potion': typeof GamesPotionRoute
+  '/games/quiz': typeof GamesQuizRoute
+  '/games/spells': typeof GamesSpellsRoute
+  '/games/trivia': typeof GamesTriviaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/achievements': typeof AchievementsRoute
   '/characters': typeof CharactersRoute
   '/creatures': typeof CreaturesRoute
   '/facts': typeof FactsRoute
-  '/games': typeof GamesRoute
+  '/favorites': typeof FavoritesRoute
+  '/games': typeof GamesRouteWithChildren
   '/locations': typeof LocationsRoute
   '/map': typeof MapRoute
   '/objects': typeof ObjectsRoute
   '/spells': typeof SpellsRoute
+  '/games/_layout': typeof GamesLayoutRoute
+  '/games/hidden': typeof GamesHiddenRoute
+  '/games/potion': typeof GamesPotionRoute
+  '/games/quiz': typeof GamesQuizRoute
+  '/games/spells': typeof GamesSpellsRoute
+  '/games/trivia': typeof GamesTriviaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/achievements'
     | '/characters'
     | '/creatures'
     | '/facts'
+    | '/favorites'
     | '/games'
     | '/locations'
     | '/map'
     | '/objects'
     | '/spells'
+    | '/games/hidden'
+    | '/games/potion'
+    | '/games/quiz'
+    | '/games/spells'
+    | '/games/trivia'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/achievements'
     | '/characters'
     | '/creatures'
     | '/facts'
+    | '/favorites'
     | '/games'
     | '/locations'
     | '/map'
     | '/objects'
     | '/spells'
+    | '/games/hidden'
+    | '/games/potion'
+    | '/games/quiz'
+    | '/games/spells'
+    | '/games/trivia'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/achievements'
     | '/characters'
     | '/creatures'
     | '/facts'
+    | '/favorites'
     | '/games'
     | '/locations'
     | '/map'
     | '/objects'
     | '/spells'
+    | '/games/_layout'
+    | '/games/hidden'
+    | '/games/potion'
+    | '/games/quiz'
+    | '/games/spells'
+    | '/games/trivia'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AchievementsRoute: typeof AchievementsRoute
   CharactersRoute: typeof CharactersRoute
   CreaturesRoute: typeof CreaturesRoute
   FactsRoute: typeof FactsRoute
-  GamesRoute: typeof GamesRoute
+  FavoritesRoute: typeof FavoritesRoute
+  GamesRoute: typeof GamesRouteWithChildren
   LocationsRoute: typeof LocationsRoute
   MapRoute: typeof MapRoute
   ObjectsRoute: typeof ObjectsRoute
@@ -184,6 +290,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GamesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/favorites': {
+      id: '/favorites'
+      path: '/favorites'
+      fullPath: '/favorites'
+      preLoaderRoute: typeof FavoritesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/facts': {
       id: '/facts'
       path: '/facts'
@@ -205,6 +318,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CharactersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/achievements': {
+      id: '/achievements'
+      path: '/achievements'
+      fullPath: '/achievements'
+      preLoaderRoute: typeof AchievementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -212,15 +339,80 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/games/trivia': {
+      id: '/games/trivia'
+      path: '/trivia'
+      fullPath: '/games/trivia'
+      preLoaderRoute: typeof GamesTriviaRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/games/spells': {
+      id: '/games/spells'
+      path: '/spells'
+      fullPath: '/games/spells'
+      preLoaderRoute: typeof GamesSpellsRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/games/quiz': {
+      id: '/games/quiz'
+      path: '/quiz'
+      fullPath: '/games/quiz'
+      preLoaderRoute: typeof GamesQuizRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/games/potion': {
+      id: '/games/potion'
+      path: '/potion'
+      fullPath: '/games/potion'
+      preLoaderRoute: typeof GamesPotionRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/games/hidden': {
+      id: '/games/hidden'
+      path: '/hidden'
+      fullPath: '/games/hidden'
+      preLoaderRoute: typeof GamesHiddenRouteImport
+      parentRoute: typeof GamesRoute
+    }
+    '/games/_layout': {
+      id: '/games/_layout'
+      path: ''
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesLayoutRouteImport
+      parentRoute: typeof GamesRoute
+    }
   }
 }
 
+interface GamesRouteChildren {
+  GamesLayoutRoute: typeof GamesLayoutRoute
+  GamesHiddenRoute: typeof GamesHiddenRoute
+  GamesPotionRoute: typeof GamesPotionRoute
+  GamesQuizRoute: typeof GamesQuizRoute
+  GamesSpellsRoute: typeof GamesSpellsRoute
+  GamesTriviaRoute: typeof GamesTriviaRoute
+}
+
+const GamesRouteChildren: GamesRouteChildren = {
+  GamesLayoutRoute: GamesLayoutRoute,
+  GamesHiddenRoute: GamesHiddenRoute,
+  GamesPotionRoute: GamesPotionRoute,
+  GamesQuizRoute: GamesQuizRoute,
+  GamesSpellsRoute: GamesSpellsRoute,
+  GamesTriviaRoute: GamesTriviaRoute,
+}
+
+const GamesRouteWithChildren = GamesRoute._addFileChildren(GamesRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AchievementsRoute: AchievementsRoute,
   CharactersRoute: CharactersRoute,
   CreaturesRoute: CreaturesRoute,
   FactsRoute: FactsRoute,
-  GamesRoute: GamesRoute,
+  FavoritesRoute: FavoritesRoute,
+  GamesRoute: GamesRouteWithChildren,
   LocationsRoute: LocationsRoute,
   MapRoute: MapRoute,
   ObjectsRoute: ObjectsRoute,
